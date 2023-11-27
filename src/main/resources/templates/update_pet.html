@@ -19,11 +19,15 @@
         <!-- Add hidden form field to handle update -->
         <input type="hidden" th:field="*{id}" />
 
+
+
         <input type="text" th:field="*{name}" placeholder="Pet Name" class="form-control mb-4 col-4">
 
         <input type="text" th:field="*{species}" placeholder="Pet Species" class="form-control mb-4 col-4">
 
         <input type="text" th:field="*{color}" placeholder="Pet Color" class="form-control mb-4 col-4">
+
+        <input type="text" th:name="ownerId" placeholder="Owner ID" class="form-control mb-4 col-4">
 
         <button type="submit" class="btn btn-info col-2"> Update Pet</button>
     </form>

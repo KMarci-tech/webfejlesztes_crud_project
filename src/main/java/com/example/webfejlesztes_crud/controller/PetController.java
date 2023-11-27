@@ -43,11 +43,11 @@ public class PetController {
             // Ha van ownerId, akkor állítsd be a tulajdonost
             Owner owner = ownerService.getOwnerById(ownerId);
             pet.setOwner(owner);
-            System.out.println("Received ownerId: " + ownerId);
+
         } else {
             // Ha nincs ownerId, hozz létre egy Pet-et null tulajdonossal
             pet.setOwner(null);
-            System.out.println("Az owner ID null");
+
         }
         petService.savePet(pet);
         return "redirect:/";
