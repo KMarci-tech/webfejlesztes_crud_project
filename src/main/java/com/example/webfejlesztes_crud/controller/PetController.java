@@ -37,18 +37,9 @@ public class PetController {
 
     @PostMapping("/savePet")
     public String savePet(@ModelAttribute("pet") Pet pet, @RequestParam(value = "ownerId", required = true) Long ownerId) {
+        Owner owner = ownerService.getOwnerById(ownerId);
+        pet.setOwner(owner);
 
-        // save pet to database
-        if (ownerId != null) {
-            // Ha van ownerId, akkor állítsd be a tulajdonost
-            Owner owner = ownerService.getOwnerById(ownerId);
-            pet.setOwner(owner);
-
-        } else {
-            // Ha nincs ownerId, hozz létre egy Pet-et null tulajdonossal
-            pet.setOwner(null);
-
-        }
         petService.savePet(pet);
         return "redirect:/";
     }
